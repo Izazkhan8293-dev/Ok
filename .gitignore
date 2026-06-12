@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production
+.next/
+out/
+build/
+dist/
+
+# Misc
+.DS_Store
+*.pem
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Debug
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# PWA
+public/sw.js
+public/workbox-*.js
+
+# Old/Duplicate files (to be cleaned)
+Order.js
+Paint.js
+Product.js
+[...nextauth].js
+[id].js
+[id] (1).js
+_app.js
+_document.js
+globals.css
+mongodb.js
+index.html
+index (1).js
+index (2).js
+index (3).js
+index (4).js
+index (5).js
