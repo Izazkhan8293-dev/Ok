@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Royal Electricals & Hardware — Pennadam</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+:root{
+  --green:#1D9E75;
+  --green-dark:#0F6E56;
+  --green-deep:#0A4F3E;
+  --red:#E24B4A;
+  --red-dark:#A32D2D;
+  --amber:#FAC775;
+  --amber-dark:#854F0B;
+  --blue:#185FA5;
+  --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+
+  /* light theme */
+  --bg:#F6F8FA;
+  --bg2:#EAEEF3;
+  --bg3:#fff;
+  --surface:#fff;
+  --border:#D8DDE5;
+  --border2:#E6EAF0;
+  --text:#1A1F2E;
+  --text2:#5A6272;
+  --text3:#8C95A6;
+  --radius-sm:6px;
+  --radius-md:10px;
+  --radius-lg:16px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);font-size:15px;color:var(--text);background:var(--bg);line-height:1.5}
+
+/* ─── BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:var(--radius-md);border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;font-size:14px;font-weight:500;transition:all .15s;font-family:var(--font)}
+.btn:hover{background:var(--bg2);border-color:var(--border)}
+.btn-primary{background:var(--green);border-color:var(--green-dark);color:#fff}
+.btn-primary:hover{background:var(--green-dark)}
+.btn-danger{background:var(--red);border-color:var(--red-dark);color:#fff}
+.btn-danger:hover{background:var(--red-dark)}
+.btn-sm{padding:5px 11px;font-size:13px}
+.btn-ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.4)}
+.hide{display:none!important}
+
+/* ─── FORMS ─── */
+input,select,textarea{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);color:var(--text);font-size:14px;font-family:var(--font);transition:border-color .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(29,158,117,.1)}
+label{font-size:13px;color:var(--text2);display:block;margin-bottom:4px;margin-top:12px;font-weight:500}
+
+/* ─── CARD ─── */
+.card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;box-shadow:var(--shadow)}
+
+/* ─── BADGE ─── */
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;letter-spacing:.02em}
+.badge-green{background:#DFFAEE;color:#0F6E56}
+.badge-amber{background:#FFF3DC;color:#854F0B}
+.badge-red{background:#FCEBEB;color:#A32D2D}
+.badge-blue{background:#E6F1FB;color:#185FA5}
+
+/* ─── NAV ─── */
+#nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.5rem;height:60px;
+  background:linear-gradient(90deg,var(--green-deep) 0%,var(--green-dark) 60%,var(--green) 100%);
+  color:#fff;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(10,79,62,.35);
+}
+#nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:#fff;cursor:pointer;letter-spacing:-.01em}
+#nav .brand-icon{width:34px;height:34px;background:rgba(255,255,255,.18);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:18px}
+#nav-links{display:flex;gap:2px;align-items:center}
+#nav-links button{background:transparent;border:none;color:rgba(255,255,255,.8);cursor:pointer;padding:7px 11px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;font-family:var(--font);transition:all .15s}
+#nav-links button:hover,#nav-links button.active{background:rgba(255,255,255,.15);color:#fff}
+#cart-btn{position:relative}
+#cart-count{position:absolute;top:-5px;right:-5px;background:var(--red);color:#fff;font-size:9px;font-weight:700;border-radius:50%;width:17px;height:17px;display:flex;align-items:center;justify-content:center;border:2px solid var(--green-deep)}
+
+/* ─── PAGES ─── */
+.page{padding:1.5rem;min-height:600px}
+
+/* ─── HERO ─── */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-dark) 45%,var(--green) 100%);
+  color:#fff;border-radius:var(--radius-lg);padding:2.5rem 2.5rem 2rem;
+  margin-bottom:1.5rem;
+  box-shadow:0 4px 24px rgba(10,79,62,.3);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events:none;
+}
+.hero-body{position:relative;z-index:1;max-width:560px}
+.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-bottom:10px}
+.hero h1{font-size:28px;font-weight:700;line-height:1.25;margin-bottom:6px;letter-spacing:-.02em}
+.hero .hero-sub{font-size:13px;opacity:.8;margin-bottom:4px}
+.hero .hero-address{font-size:13px;opacity:.65;margin-bottom:1.5rem}
+.hero .hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.hero-deco{position:absolute;right:2rem;top:50%;transform:translateY(-50%);font-size:100px;opacity:.08;z-index:0;line-height:1}
+
+/* ─── STATS ─── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:1.5rem}
+.stat-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green-dark))}
+.stat-card .num{font-size:26px;font-weight:700;color:var(--green);letter-spacing:-.02em}
+.stat-card .lbl{font-size:12px;color:var(--text2);margin-top:4px;font-weight:500}
+
+/* ─── BRANDS ─── */
+.brands-section{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.brands-section h3{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.brands{display:flex;flex-wrap:wrap;gap:8px}
+.brand-chip{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--text2);font-weight:500;transition:all .15s;cursor:default}
+.brand-chip:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* ─── INFO CARDS ─── */
+.info-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.info-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;cursor:pointer;transition:all .2s;box-shadow:var(--shadow)}
+.info-card:hover{border-color:var(--green);box-shadow:0 4px 20px rgba(29,158,117,.15);transform:translateY(-2px)}
+.info-card .ic-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.info-card .ic-icon i{color:#fff;font-size:20px}
+.info-card h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.info-card p{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* ─── PRODUCTS ─── */
+.page-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;gap:1rem;flex-wrap:wrap}
+.page-header h2{font-size:20px;font-weight:700;color:var(--text)}
+.page-header p{font-size:13px;color:var(--text2);margin-top:2px}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.25rem;align-items:center}
+.filter-bar input{width:220px}
+.cat-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-size:13px;color:var(--text2);font-weight:500;font-family:var(--font);transition:all .15s}
+.cat-btn.active,.cat-btn:hover{background:var(--green);border-color:var(--green);color:#fff}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px}
+.prod-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:var(--shadow)}
+.prod-card:hover{border-color:var(--green);box-shadow:0 4px 20px rgba(29,158,117,.15);transform:translateY(-2px)}
+.prod-img{height:110px;background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);display:flex;align-items:center;justify-content:center;font-size:44px;position:relative}
+.prod-cat-tag{position:absolute;top:8px;left:8px;font-size:10px;font-weight:600;background:rgba(255,255,255,.9);color:var(--text2);padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:.04em}
+.prod-info{padding:12px}
+.prod-info .name{font-size:13px;font-weight:600;margin-bottom:3px;line-height:1.4;color:var(--text)}
+.prod-info .brand{font-size:11px;color:var(--text3);font-weight:500}
+.prod-info .price{font-size:16px;font-weight:700;color:var(--green);margin:8px 0 6px;letter-spacing:-.02em}
+.prod-info .price span{font-size:11px;font-weight:400;color:var(--text2)}
+.add-btn{width:100%;margin-top:8px;padding:7px;border-radius:var(--radius-sm);border:1.5px solid var(--green);background:transparent;color:var(--green);cursor:pointer;font-size:13px;font-weight:600;font-family:var(--font);transition:all .15s}
+.add-btn:hover{background:var(--green);color:#fff}
+.add-btn:disabled{border-color:var(--border);color:var(--text3);cursor:not-allowed}
+
+/* ─── CART SIDEBAR ─── */
+#cart-sidebar{position:fixed;right:0;top:60px;bottom:0;width:340px;background:var(--surface);border-left:1px solid var(--border2);z-index:200;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 32px rgba(0,0,0,.08)}
+#cart-sidebar.open{transform:translateX(0)}
+.cart-header{padding:1.1rem 1.25rem;border-bottom:1px solid var(--border2);display:flex;justify-content:space-between;align-items:center;background:var(--bg)}
+.cart-header h3{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
+.cart-items{flex:1;overflow-y:auto;padding:1rem}
+.cart-item{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.cart-item .ci-icon{width:40px;height:40px;background:var(--bg2);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cart-item .ci-name{flex:1;font-size:13px;font-weight:600;line-height:1.3}
+.cart-item .ci-sub{font-size:11px;color:var(--text2);margin-top:2px}
+.cart-item .ci-qty{display:flex;align-items:center;gap:4px}
+.ci-qty button{width:24px;height:24px;border:1px solid var(--border);border-radius:6px;background:var(--bg2);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;font-family:var(--font)}
+.ci-qty button:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.cart-footer{padding:1.1rem 1.25rem;border-top:1px solid var(--border2);background:var(--bg)}
+.cart-total-row{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px;color:var(--text2)}
+.cart-total-row.grand{font-weight:700;font-size:17px;color:var(--text);padding-top:10px;margin-top:4px;border-top:1px solid var(--border2)}
+
+/* ─── MODAL ─── */
+.modal-bg{position:fixed;inset:0;background:rgba(10,15,30,.55);z-index:300;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal{background:var(--surface);border-radius:var(--radius-lg);padding:2rem;width:90%;max-width:540px;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+.modal h2{font-size:20px;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ─── INVOICE PRINT ─── */
+#invoice-print{font-family:var(--font);padding:1.5rem}
+.inv-header{text-align:center;border-bottom:2px solid var(--green);padding-bottom:1.1rem;margin-bottom:1rem}
+.inv-header .inv-logo{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:var(--green);border-radius:var(--radius-md);margin-bottom:10px}
+.inv-header .inv-logo i{color:#fff;font-size:26px}
+.inv-header h1{color:var(--green);font-size:19px;font-weight:700;letter-spacing:-.01em}
+.inv-header h1.tamil{font-size:16px;color:var(--text2);font-weight:400}
+.inv-header p{font-size:12px;color:var(--text2);margin-top:4px}
+.inv-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1rem;font-size:13px}
+.inv-meta-item label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:2px}
+.inv-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:1rem}
+.inv-table th{background:#DFFAEE;color:var(--green-dark);padding:9px 10px;text-align:left;font-weight:700;font-size:12px;letter-spacing:.03em}
+.inv-table td{padding:8px 10px;border-bottom:1px solid var(--border2)}
+.inv-table tr:last-child td{border-bottom:none}
+.inv-totals{text-align:right;font-size:14px;color:var(--text2)}
+.inv-totals>div{margin-bottom:4px}
+.inv-totals .grand{font-size:18px;font-weight:700;color:var(--green);margin-top:8px;padding-top:8px;border-top:1px solid var(--border2)}
+.inv-footer{margin-top:1.5rem;text-align:center;font-size:12px;color:var(--text2);border-top:1px solid var(--border2);padding-top:1rem}
+
+/* ─── ADMIN ─── */
+.admin-grid{display:grid;grid-template-columns:210px 1fr;gap:1rem;min-height:600px}
+.admin-sidebar{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:0.75rem;height:fit-content;box-shadow:var(--shadow)}
+.admin-sidebar button{width:100%;text-align:left;padding:9px 12px;border:none;background:transparent;border-radius:var(--radius-md);cursor:pointer;font-size:14px;color:var(--text2);display:flex;align-items:center;gap:9px;margin-bottom:2px;font-family:var(--font);font-weight:500;transition:all .15s}
+.admin-sidebar button:hover{background:var(--bg2);color:var(--text)}
+.admin-sidebar button.active{background:#DFFAEE;color:var(--green);font-weight:600}
+.admin-content{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow)}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border2)}
+.section-header h2{font-size:18px;font-weight:700}
+.data-table{width:100%;border-collapse:collapse;font-size:13px}
+.data-table th{border-bottom:1px solid var(--border);padding:10px 10px;text-align:left;font-weight:600;color:var(--text2);font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.data-table td{padding:10px;border-bottom:1px solid var(--border2)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tbody tr:hover td{background:var(--bg)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ─── CONTENT PAGES ─── */
+.page-content{max-width:720px;margin:0 auto}
+.page-hero{background:linear-gradient(135deg,var(--green-deep),var(--green-dark));color:#fff;border-radius:var(--radius-lg);padding:2rem 2.5rem;margin-bottom:1.5rem;box-shadow:0 4px 20px rgba(10,79,62,.25)}
+.page-hero h1{font-size:24px;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.page-hero p{font-size:14px;opacity:.8}
+.page-content h2{font-size:17px;font-weight:700;margin:1.5rem 0 0.6rem;color:var(--text);display:flex;align-items:center;gap:8px}
+.page-content h2 i{color:var(--green);font-size:18px}
+.page-content p{font-size:14px;line-height:1.75;color:var(--text2);margin-bottom:0.75rem}
+.page-content ul{padding-left:0;font-size:14px;color:var(--text2);line-height:1.9;list-style:none}
+.page-content ul li{padding:3px 0 3px 20px;position:relative}
+.page-content ul li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:12px}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:1.5rem}
+.detail-tile{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.1rem 1.25rem;box-shadow:var(--shadow)}
+.detail-tile .dt-label{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
+.detail-tile .dt-val{font-size:15px;font-weight:600;color:var(--text)}
+.detail-tile .dt-sub{font-size:13px;color:var(--text2);margin-top:2px}
+
+/* ─── AUTH ─── */
+.auth-wrap{display:flex;align-items:center;justify-content:center;min-height:540px;padding:1rem}
+.auth-card{width:100%;max-width:420px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:var(--shadow-lg)}
+.auth-card h2{font-size:22px;font-weight:700;margin-bottom:4px}
+.auth-card .sub{font-size:14px;color:var(--text2);margin-bottom:1.5rem;line-height:1.5}
+.auth-logo{text-align:center;margin-bottom:1.5rem}
+.auth-logo .al-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:var(--radius-lg);display:inline-flex;align-items:center;justify-content:center;margin-bottom:10px}
+.auth-logo .al-icon i{color:#fff;font-size:28px}
+.auth-logo p{font-size:14px;font-weight:700;color:var(--green)}
+.auth-logo small{font-size:12px;color:var(--text3)}
+.divider{display:flex;align-items:center;gap:10px;margin:1rem 0;color:var(--text3);font-size:12px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border2)}
+.google-btn{width:100%;padding:10px;border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;gap:8px;color:var(--text);font-family:var(--font);font-weight:500;transition:all .15s}
+.google-btn:hover{background:var(--bg2)}
+.err{font-size:13px;color:var(--red-dark);margin-top:8px;padding:8px 12px;background:#FCEBEB;border-radius:var(--radius-sm)}
+
+/* ─── NOTIFICATION ─── */
+.notif{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:12px 18px;border-radius:var(--radius-lg);font-size:14px;z-index:999;display:none;gap:8px;align-items:center;box-shadow:0 4px 20px rgba(10,79,62,.4);font-weight:500}
+.notif.show{display:flex}
+
+/* ─── CONTACT ─── */
+.contact-info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:1.5rem}
+.contact-tile{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius-lg);padding:1.25rem;box-shadow:var(--shadow);display:flex;align-items:flex-start;gap:12px}
+.contact-tile .ct-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--green),var(--green-dark));border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-tile .ct-icon i{color:#fff;font-size:18px}
+.contact-tile .ct-label{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);margin-bottom:3px}
+.contact-tile .ct-val{font-size:15px;font-weight:600;color:var(--text)}
+.contact-tile .ct-sub{font-size:12px;color:var(--text2);margin-top:1px}
+
+/* ─── PRINT ─── */
+@media print{
+  #nav,#cart-sidebar,.modal-bg:not(#invoice-print-modal),#invoice-print-modal .btn-row,
+  .notif{display:none!important}
+  #invoice-print{padding:0}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nav">
+  <div class="brand" onclick="showPage('home')">
+    <div class="brand-icon"><i class="ti ti-bolt"></i></div>
+    <div>
+      <div>New Royal Electricals</div>
+      <div style="font-size:10px;font-weight:400;opacity:.65;letter-spacing:.04em">& HARDWARE · PENNADAM</div>
+    </div>
+  </div>
+  <div id="nav-links">
+    <button onclick="showPage('home')" id="nav-home" class="active">Home</button>
+    <button onclick="showPage('products')" id="nav-products">Products</button>
+    <button onclick="showPage('about')" id="nav-about">About</button>
+    <button onclick="showPage('refund')" id="nav-refund">Refund</button>
+    <button onclick="showPage('terms')" id="nav-terms">Terms</button>
+    <button onclick="showPage('contact')" id="nav-contact">Contact</button>
+    <button onclick="toggleCart()" id="cart-btn" style="position:relative">
+      <i class="ti ti-shopping-cart"></i>
+      <span id="cart-count">0</span>
+    </button>
+    <button onclick="showPage('auth')" id="nav-auth" class="btn-ghost" style="border-radius:8px;margin-left:4px"><i class="ti ti-user"></i> Login</button>
+    <button onclick="showPage('admin')" id="nav-admin" class="btn-ghost" style="border-radius:8px"><i class="ti ti-settings"></i> Admin</button>
+  </div>
+</div>
+
+<!-- HOME -->
+<div id="page-home" class="page">
+  <div class="hero">
+    <div class="hero-body">
+      <div class="hero-eyebrow"><i class="ti ti-bolt" style="vertical-align:-2px"></i> Established 1970 · Pennadam's Trusted Store</div>
+      <h1>நியூ ராயல் எலக்ட்ரிக்கல்ஸ்<br>New Royal Electricals</h1>
+      <p class="hero-sub">Your one-stop destination for electrical, hardware &amp; paint supplies</p>
+      <p class="hero-address"><i class="ti ti-map-pin" style="vertical-align:-2px;font-size:12px"></i> 92, Main Road, Pennadam – 606 105 &nbsp;|&nbsp; GSTIN: 33AACFN4722E1ZR</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="showPage('products')"><i class="ti ti-shopping-bag"></i> Shop Now</button>
+        <button class="btn btn-ghost" onclick="showPage('about')"><i class="ti ti-info-circle"></i> About Us</button>
+      </div>
+    </div>
+    <div class="hero-deco">⚡</div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="num" id="stat-products">64</div><div class="lbl">Products Listed</div></div>
+    <div class="stat-card"><div class="num" id="stat-orders">0</div><div class="lbl">Orders Today</div></div>
+    <div class="stat-card"><div class="num" id="stat-sales">₹0</div><div class="lbl">Today's Revenue</div></div>
+    <div class="stat-card"><div class="num">GST</div><div class="lbl">Compliant Billing</div></div>
+  </div>
+
+  <div class="brands-section">
+    <h3>Brands We Carry</h3>
+    <div class="brands">
+      <span class="brand-chip">GM</span>
+      <span class="brand-chip">Kundan</span>
+      <span class="brand-chip">Hi-Fi</span>
+      <span class="brand-chip">Fybros</span>
+      <span class="brand-chip">Crompton</span>
+      <span class="brand-chip">Philips</span>
+      <span class="brand-chip">Norwood LED</span>
+      <span class="brand-chip">CRI</span>
+      <span class="brand-chip">Laxmi Motors</span>
+      <span class="brand-chip">Birla Opus Paints</span>
+      <span class="brand-chip">PVC / UPVC / CPVC</span>
+      <span class="brand-chip">GI Fittings</span>
+    </div>
+  </div>
+
+  <div class="info-cards">
+    <div class="info-card" onclick="showPage('about')">
+      <div class="ic-icon"><i class="ti ti-building-store"></i></div>
+      <h3>About Our Store</h3>
+      <p>Serving Pennadam with quality products for over 55 years. Trusted by homeowners, contractors &amp; industries alike.</p>
+    </div>
+    <div class="info-card" onclick="showPage('refund')">
+      <div class="ic-icon"><i class="ti ti-arrow-back-up"></i></div>
+      <h3>Refund Policy</h3>
+      <p>Clear and transparent policies on exchanges and returns. Read before you purchase to avoid misunderstandings.</p>
+    </div>
+    <div class="info-card" onclick="showPage('terms')">
+      <div class="ic-icon"><i class="ti ti-file-description"></i></div>
+      <h3>Terms &amp; Conditions</h3>
+      <p>Purchase terms, GST information, warranty, and governing jurisdiction — all clearly laid out.</p>
+    </div>
+    <div class="info-card" onclick="showPage('contact')">
+      <div class="ic-icon"><i class="ti ti-phone-call"></i></div>
+      <h3>Contact Us</h3>
+      <p>Reach us at 94431 82381 or 99448 64347. Open Mon–Sat, 8 AM to 8 PM.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div id="page-products" class="page hide">
+  <div class="page-header">
+    <div>
+      <h2>Our Products</h2>
+      <p>Browse our full range of electrical, hardware &amp; paint supplies</p>
+    </div>
+  </div>
+  <div class="filter-bar">
+    <input type="text" id="search-input" placeholder="🔍  Search by name or brand…" oninput="filterProducts()" style="width:240px">
+    <button class="cat-btn active" onclick="filterCat(this,'all')">All</button>
+    <button class="cat-btn" onclick="filterCat(this,'electrical')">Electrical</button>
+    <button class="cat-btn" onclick="filterCat(this,'lighting')">Lighting</button>
+    <button class="cat-btn" onclick="filterCat(this,'cables')">Cables &amp; Wires</button>
+    <button class="cat-btn" onclick="filterCat(this,'hardware')">Hardware</button>
+    <button class="cat-btn" onclick="filterCat(this,'paint')">Paints</button>
+    <button class="cat-btn" onclick="filterCat(this,'pvc')">PVC / Fittings</button>
+  </div>
+  <div class="products-grid" id="products-grid"></div>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page hide">
+  <div class="page-content">
+    <div class="page-hero">
+      <h1><i class="ti ti-building-store"></i> About New Royal Electricals</h1>
+      <p>Over five decades of trust, quality service, and community commitment in Pennadam.</p>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem">
+      <p>Founded in 1970, <strong>New Royal Electricals &amp; Hardware</strong> has grown to become Pennadam's most trusted destination for electrical, hardware, and building material supplies. For more than 55 years, we have served homeowners, electricians, contractors, builders, and industrial clients across the region — delivering genuine products at fair prices.</p>
+      <p>Our store carries an extensive range of products from leading national brands. Whether you are wiring a new home, upgrading your lighting, laying pipelines, or painting your walls, we have everything you need under one roof — with knowledgeable staff ready to guide you.</p>
+    </div>
+    <h2><i class="ti ti-package"></i> What We Offer</h2>
+    <div class="card" style="margin-bottom:1.5rem">
+      <ul>
+        <li>Electrical switches, sockets &amp; modular accessories (GM, Kundan, Hi-Fi, Fybros)</li>
+        <li>LED bulbs, tube lights, panel lights &amp; lighting accessories (Crompton, Philips, Norwood)</li>
+        <li>Motor pumps &amp; submersible sets (CRI, Laxmi Motors)</li>
+        <li>PVC, UPVC, CPVC pipes &amp; GI fitting items</li>
+        <li>Birla Opus Paints — authorised dealer for interior &amp; exterior finishes</li>
+        <li>Hardware tools, fasteners &amp; building accessories</li>
+      </ul>
+    </div>
+    <h2><i class="ti ti-info-circle"></i> Store Details</h2>
+    <div class="detail-grid">
+      <div class="detail-tile">
+        <div class="dt-label">Address</div>
+        <div class="dt-val">92, Main Road</div>
+        <div class="dt-sub">மெயின்ரோடு, Pennadam – 606 105<br>Tamil Nadu, India</div>
+      </div>
+      <div class="detail-tile">
+        <div class="dt-label">GSTIN</div>
+        <div class="dt-val">33AACFN4722E1ZR</div>
+        <div class="dt-sub">GST-registered, compliant invoicing</div>
+      </div>
+      <div class="detail-tile">
+        <div class="dt-label">Phone</div>
+        <div class="dt-val">94431 82381</div>
+        <div class="dt-sub">Also: 99448 64347</div>
+      </div>
+      <div class="detail-tile">
+        <div class="dt-label">Business Hours</div>
+        <div class="dt-val">Mon – Sat</div>
+        <div class="dt-sub">8:00 AM – 8:00 PM</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REFUND -->
+<div id="page-refund" class="page hide">
+  <div class="page-content">
+    <div class="page-hero">
+      <h1><i class="ti ti-arrow-back-up"></i> Refund &amp; Return Policy</h1>
+      <p>We believe in complete transparency regarding our return and exchange terms.</p>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem;background:#FCEBEB;border-color:#F7C1C1;box-shadow:none">
+      <p style="color:var(--red-dark);font-weight:600;font-size:15px;margin-bottom:4px"><i class="ti ti-alert-triangle" style="vertical-align:-2px"></i> Important Notice</p>
+      <p style="color:var(--red-dark);margin:0">விற்ற சரக்கு திரும்பி எடுத்துக் கொள்ளப்படமாட்டாது.<br><strong>Goods once sold cannot be taken back.</strong> This policy is printed on every invoice issued by our store.</p>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem">
+      <p>New Royal Electricals operates under a strict no-return, no-refund policy for all sold goods. We urge all customers to inspect products carefully at the time of purchase and raise any concerns with our staff before leaving the store.</p>
+    </div>
+    <h2><i class="ti ti-check"></i> Limited Exceptions</h2>
+    <div class="card" style="margin-bottom:1.5rem">
+      <ul>
+        <li>Manufacturing defects identified at the time of purchase, verified by our staff, may be eligible for exchange.</li>
+        <li>Items delivered incorrectly due to our error will be replaced at no charge to the customer.</li>
+        <li>Defective items must be reported within <strong>24 hours</strong> of purchase, accompanied by the original bill.</li>
+      </ul>
+    </div>
+    <h2><i class="ti ti-x"></i> Non-Returnable Items</h2>
+    <div class="card">
+      <ul>
+        <li>All electrical wires and cables — once cut or used</li>
+        <li>All paint products — once mixed or opened</li>
+        <li>Special-order or custom-sourced items</li>
+        <li>Items returned without original packaging or bill</li>
+      </ul>
+      <p style="margin-top:1rem">For any queries regarding this policy, please contact us at <strong>94431 82381</strong> with your bill number ready.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS -->
+<div id="page-terms" class="page hide">
+  <div class="page-content">
+    <div class="page-hero">
+      <h1><i class="ti ti-file-description"></i> Terms &amp; Conditions</h1>
+      <p>Please read these terms carefully before making a purchase at our store or through this platform.</p>
+    </div>
+    <div class="card" style="margin-bottom:1rem">
+      <h2 style="margin-top:0"><i class="ti ti-shopping-cart"></i> 1. Purchases &amp; Pricing</h2>
+      <p>All purchases are subject to stock availability. Product prices are subject to change without prior notice due to market fluctuations. GST (SGST + CGST) is charged as applicable under government regulations and is clearly shown on every invoice.</p>
+      <h2><i class="ti ti-credit-card"></i> 2. Payment Methods</h2>
+      <p>We accept Cash, UPI, Card, and Credit payments. All invoices are GST-compliant with a full SGST and CGST breakdown provided at checkout.</p>
+      <h2><i class="ti ti-shield-check"></i> 3. Warranty</h2>
+      <p>Warranty claims are subject to the respective manufacturer's policy. New Royal Electricals is not liable for manufacturing defects or product failures beyond the date of sale. Customers should retain their original bill for warranty claims directly with the brand.</p>
+      <h2><i class="ti ti-user"></i> 4. User Accounts</h2>
+      <p>Customers may register for an account to track orders and receive digital invoices. All account details provided must be accurate and kept up to date. We reserve the right to suspend accounts with false information.</p>
+      <h2><i class="ti ti-shield-lock"></i> 5. Admin Access</h2>
+      <p>Admin access is strictly restricted to authorised store personnel. Any unauthorised access attempts are prohibited and may be subject to legal action.</p>
+      <h2><i class="ti ti-scale"></i> 6. Governing Law</h2>
+      <p>These terms and conditions are governed by the laws of Tamil Nadu, India. Any disputes arising from purchases shall be subject to the jurisdiction of Pennadam courts.</p>
+      <p style="color:var(--text3);font-size:12px;margin-top:1.5rem;padding-top:1rem;border-top:1px solid var(--border2)">Last updated: June 2026 &nbsp;·&nbsp; GSTIN 33AACFN4722E1ZR &nbsp;·&nbsp; New Royal Electricals &amp; Hardware, Pennadam</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page hide">
+  <div class="page-content">
+    <div class="page-hero">
+      <h1><i class="ti ti-phone-call"></i> Contact Us</h1>
+      <p>We're always happy to help. Reach out to us through any of the channels below.</p>
+    </div>
+    <div class="contact-info-grid">
+      <div class="contact-tile">
+        <div class="ct-icon"><i class="ti ti-phone"></i></div>
+        <div>
+          <div class="ct-label">Phone</div>
+          <div class="ct-val">94431 82381</div>
+          <div class="ct-sub">Also: 99448 64347</div>
+        </div>
+      </div>
+      <div class="contact-tile">
+        <div class="ct-icon"><i class="ti ti-map-pin"></i></div>
+        <div>
+          <div class="ct-label">Address</div>
+          <div class="ct-val">92, Main Road</div>
+          <div class="ct-sub">Pennadam – 606 105, Tamil Nadu</div>
+        </div>
+      </div>
+      <div class="contact-tile">
+        <div class="ct-icon"><i class="ti ti-receipt-tax"></i></div>
+        <div>
+          <div class="ct-label">GSTIN</div>
+          <div class="ct-val" style="font-size:13px">33AACFN4722E1ZR</div>
+          <div class="ct-sub">GST-registered &amp; compliant</div>
+        </div>
+      </div>
+      <div class="contact-tile">
+        <div class="ct-icon"><i class="ti ti-clock"></i></div>
+        <div>
+          <div class="ct-label">Business Hours</div>
+          <div class="ct-val">Mon – Sat</div>
+          <div class="ct-sub">8:00 AM – 8:00 PM</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:4px">Send Us a Message</h3>
+      <p style="font-size:13px;color:var(--text2);margin-bottom:1rem">Have a question about a product or order? We'll get back to you as soon as possible.</p>
+      <label>Your Name</label><input type="text" id="contact-name" placeholder="Enter your full name">
+      <label>Phone / Email</label><input type="text" id="contact-phone" placeholder="Mobile number or email address">
+      <label>Message</label><textarea id="contact-msg" rows="4" placeholder="How can we help you today?"></textarea>
+      <button class="btn btn-primary" style="margin-top:16px" onclick="sendContact()"><i class="ti ti-send"></i> Send Message</button>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH -->
+<div id="page-auth" class="page hide">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <div class="al-icon"><i class="ti ti-bolt"></i></div>
+        <p>New Royal Electricals</p>
+        <small>Customer Portal</small>
+      </div>
+      <div id="auth-login-view">
+        <h2>Welcome Back</h2>
+        <p class="sub">Sign in to view your orders and access digital invoices from our store.</p>
+        <button class="google-btn" onclick="googleLogin()">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Continue with Google
+        </button>
+        <div class="divider">or sign in with email</div>
+        <label>Email Address</label><input type="email" id="login-email" placeholder="you@email.com">
+        <label>Password</label><input type="password" id="login-pass" placeholder="Your password">
+        <p class="err hide" id="login-err">Invalid credentials. Please try again.</p>
+        <button class="btn btn-primary" style="width:100%;margin-top:14px" onclick="doLogin()"><i class="ti ti-login"></i> Sign In</button>
+        <p style="text-align:center;font-size:13px;margin-top:14px;color:var(--text2)">
+          Don't have an account? <a href="#" onclick="showRegister()" style="color:var(--green);font-weight:600">Register here</a>
+        </p>
+      </div>
+      <div id="auth-register-view" class="hide">
+        <h2>Create Account</h2>
+        <p class="sub">Register to place orders and receive GST invoices digitally from our store.</p>
+        <button class="google-btn" onclick="googleLogin()">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Sign up with Google
+        </button>
+        <div class="divider">or register with email</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div><label>First Name</label><input type="text" id="reg-first" placeholder="First"></div>
+          <div><label>Last Name</label><input type="text" id="reg-last" placeholder="Last"></div>
+        </div>
+        <label>Email Address</label><input type="email" id="reg-email" placeholder="you@email.com">
+        <label>Phone Number</label><input type="tel" id="reg-phone" placeholder="+91 XXXXX XXXXX">
+        <label>Password</label><input type="password" id="reg-pass" placeholder="Minimum 6 characters">
+        <p class="err hide" id="reg-err"></p>
+        <button class="btn btn-primary" style="width:100%;margin-top:14px" onclick="doRegister()"><i class="ti ti-user-plus"></i> Create Account</button>
+        <p style="text-align:center;font-size:13px;margin-top:14px;color:var(--text2)">
+          Already have an account? <a href="#" onclick="showLogin()" style="color:var(--green);font-weight:600">Sign in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="page-admin" class="page hide">
+  <div id="admin-login-screen">
+    <div class="auth-wrap">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <div class="al-icon" style="background:linear-gradient(135deg,#185FA5,#0D3F70)"><i class="ti ti-shield-lock"></i></div>
+          <p style="color:#185FA5">Admin Panel</p>
+          <small>Authorised personnel only</small>
+        </div>
+        <h2>Admin Login</h2>
+        <p class="sub">Enter your administrator credentials to access the store management dashboard.</p>
+        <label>Admin Email</label><input type="email" id="admin-email" placeholder="admin@newroyalelectricals.com">
+        <label>Password</label><input type="password" id="admin-pass" placeholder="Admin password">
+        <p class="err hide" id="admin-err">Incorrect credentials. Please try again.</p>
+        <button class="btn btn-primary" style="width:100%;margin-top:14px" onclick="doAdminLogin()"><i class="ti ti-lock-open"></i> Access Dashboard</button>
+        <p style="text-align:center;font-size:12px;margin-top:10px;color:var(--text3)">Demo: admin@nre.com / admin123</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="admin-panel" class="hide">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border2)">
+      <div>
+        <h1 style="font-size:22px;font-weight:700;display:flex;align-items:center;gap:10px"><span style="color:var(--green)"><i class="ti ti-layout-dashboard"></i></span> Admin Dashboard</h1>
+        <p style="font-size:13px;color:var(--text2);margin-top:2px">Manage products, orders, inventory &amp; users</p>
+      </div>
+      <button class="btn btn-sm" onclick="adminLogout()"><i class="ti ti-logout"></i> Logout</button>
+    </div>
+    <div class="admin-grid">
+      <div class="admin-sidebar">
+        <button class="active" onclick="adminTab('dashboard',this)"><i class="ti ti-chart-bar"></i> Dashboard</button>
+        <button onclick="adminTab('products',this)"><i class="ti ti-package"></i> Products</button>
+        <button onclick="adminTab('inventory',this)"><i class="ti ti-stack"></i> Inventory</button>
+        <button onclick="adminTab('orders',this)"><i class="ti ti-receipt"></i> Orders</button>
+        <button onclick="adminTab('invoices',this)"><i class="ti ti-file-invoice"></i> Invoices</button>
+        <button onclick="adminTab('users',this)"><i class="ti ti-users"></i> Users</button>
+        <button onclick="adminTab('settings',this)"><i class="ti ti-adjustments"></i> Settings</button>
+      </div>
+      <div class="admin-content" id="admin-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div id="cart-sidebar">
+  <div class="cart-header">
+    <h3><i class="ti ti-shopping-cart" style="color:var(--green)"></i> Your Cart</h3>
+    <button class="btn btn-sm" onclick="toggleCart()"><i class="ti ti-x"></i></button>
+  </div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row"><span>Subtotal</span><span id="cart-sub">₹0</span></div>
+    <div class="cart-total-row"><span>SGST 9%</span><span id="cart-sgst">₹0</span></div>
+    <div class="cart-total-row"><span>CGST 9%</span><span id="cart-cgst">₹0</span></div>
+    <div class="cart-total-row grand"><span>Grand Total</span><span id="cart-grand">₹0</span></div>
+    <button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="openInvoiceModal()" id="checkout-btn" disabled><i class="ti ti-file-invoice"></i> Generate GST Invoice</button>
+    <button class="btn btn-sm" style="width:100%;margin-top:8px" onclick="clearCart()"><i class="ti ti-trash"></i> Clear Cart</button>
+  </div>
+</div>
+
+<!-- INVOICE FORM MODAL -->
+<div id="invoice-modal" class="modal-bg hide">
+  <div class="modal">
+    <h2><i class="ti ti-file-invoice" style="color:var(--green)"></i> Generate GST Invoice</h2>
+    <label>Customer Name *</label><input type="text" id="inv-name" placeholder="Full name of customer">
+    <label>Phone Number</label><input type="text" id="inv-phone" placeholder="10-digit mobile number">
+    <label>Billing / Delivery Address</label><textarea id="inv-addr" rows="2" placeholder="Street, area, pin code"></textarea>
+    <div class="modal-row" style="margin-top:4px">
+      <div><label>Payment Method</label>
+        <select id="inv-payment"><option>Cash</option><option>UPI</option><option>Card</option><option>Credit</option></select>
+      </div>
+      <div><label>Invoice Date</label><input type="date" id="inv-date"></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:1.25rem">
+      <button class="btn" onclick="closeInvoiceModal()" style="flex:1"><i class="ti ti-x"></i> Cancel</button>
+      <button class="btn btn-primary" onclick="createInvoice()" style="flex:2"><i class="ti ti-file-check"></i> Create Invoice</button>
+    </div>
+  </div>
+</div>
+
+<!-- INVOICE PRINT VIEW -->
+<div id="invoice-print-modal" class="modal-bg hide">
+  <div class="modal" style="max-width:620px">
+    <div id="invoice-print">
+      <div class="inv-header">
+        <div class="inv-logo"><i class="ti ti-bolt"></i></div>
+        <h1 class="tamil">நியூ ராயல் எலக்ட்ரிக்கல்ஸ்</h1>
+        <h1>NEW ROYAL ELECTRICALS &amp; HARDWARE</h1>
+        <p>92, Main Road, Pennadam – 606 105, Tamil Nadu</p>
+        <p>GSTIN: 33AACFN4722E1ZR &nbsp;|&nbsp; Cell: 94431 82381 / 99448 64347</p>
+      </div>
+      <div class="inv-meta">
+        <div class="inv-meta-item"><label>Bill No.</label><strong id="inv-bill-no"></strong></div>
+        <div class="inv-meta-item"><label>Date</label><strong id="inv-bill-date"></strong></div>
+        <div class="inv-meta-item"><label>Customer</label><strong id="inv-bill-name"></strong></div>
+        <div class="inv-meta-item"><label>Phone</label><strong id="inv-bill-phone"></strong></div>
+        <div class="inv-meta-item" style="grid-column:1/-1"><label>Address</label><strong id="inv-bill-addr"></strong></div>
+        <div class="inv-meta-item"><label>Payment Mode</label><strong id="inv-bill-pay"></strong></div>
+      </div>
+      <table class="inv-table">
+        <thead><tr><th>#</th><th>Particulars</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead>
+        <tbody id="inv-table-body"></tbody>
+      </table>
+      <div class="inv-totals">
+        <div>Subtotal: <strong id="inv-total-sub"></strong></div>
+        <div>SGST 9%: <strong id="inv-total-sgst"></strong></div>
+        <div>CGST 9%: <strong id="inv-total-cgst"></strong></div>
+        <div class="grand">Grand Total: <span id="inv-total-grand"></span></div>
+      </div>
+      <div class="inv-footer">
+        <p><strong>Goods Once Sold Cannot Be Taken Back</strong></p>
+        <p>விற்ற சரக்கு திரும்பி எடுத்துக் கொள்ளப்படமாட்டாது.</p>
+        <p style="margin-top:8px;color:var(--green);font-weight:600">Thank you for shopping at New Royal Electricals!</p>
+      </div>
+    </div>
+    <div class="btn-row" style="display:flex;gap:10px;margin-top:1rem">
+      <button class="btn" onclick="closeInvPrint()" style="flex:1"><i class="ti ti-x"></i> Close</button>
+      <button class="btn btn-primary" onclick="window.print()" style="flex:2"><i class="ti ti-printer"></i> Print Invoice</button>
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFICATION -->
+<div id="notif" class="notif"><i class="ti ti-circle-check"></i><span id="notif-text"></span></div>
+
+<script>
+const PRODUCTS=[
+  {id:1,name:"GM 16A Switch",brand:"GM",cat:"electrical",price:85,stock:50,icon:"💡",unit:"pc"},
+  {id:2,name:"Fybros 1.5mm Wire (100m)",brand:"Fybros",cat:"cables",price:1250,stock:30,icon:"🔌",unit:"roll"},
+  {id:3,name:"Philips 9W LED Bulb",brand:"Philips",cat:"lighting",price:120,stock:100,icon:"💡",unit:"pc"},
+  {id:4,name:"Crompton Ceiling Fan 48\"",brand:"Crompton",cat:"electrical",price:2200,stock:20,icon:"🌀",unit:"pc"},
+  {id:5,name:"Norwood LED Tube 20W",brand:"Norwood",cat:"lighting",price:280,stock:60,icon:"🔦",unit:"pc"},
+  {id:6,name:"Kundan MCB 32A",brand:"Kundan",cat:"electrical",price:190,stock:40,icon:"⚡",unit:"pc"},
+  {id:7,name:"CRI 0.5HP Motor Pump",brand:"CRI",cat:"hardware",price:4800,stock:10,icon:"🔧",unit:"pc"},
+  {id:8,name:"Birla Opus Exterior Paint 4L",brand:"Birla Opus",cat:"paint",price:920,stock:25,icon:"🎨",unit:"tin"},
+  {id:9,name:"2\" PVC Pipe (3m)",brand:"Local",cat:"pvc",price:95,stock:80,icon:"🔩",unit:"pc"},
+  {id:10,name:"Hi-Fi 6A Socket 3-pin",brand:"Hi-Fi",cat:"electrical",price:65,stock:70,icon:"🔌",unit:"pc"},
+  {id:11,name:"Philips 18W Panel Light",brand:"Philips",cat:"lighting",price:450,stock:35,icon:"💡",unit:"pc"},
+  {id:12,name:"Fybros 4mm Wire (100m)",brand:"Fybros",cat:"cables",price:2100,stock:20,icon:"🔌",unit:"roll"},
+  {id:13,name:"UPVC Ball Valve 1\"",brand:"Local",cat:"pvc",price:180,stock:45,icon:"🔩",unit:"pc"},
+  {id:14,name:"Birla Opus Wall Putty 5kg",brand:"Birla Opus",cat:"paint",price:680,stock:30,icon:"🎨",unit:"bag"},
+  {id:15,name:"Laxmi 1HP Water Motor",brand:"Laxmi Motors",cat:"hardware",price:6200,stock:8,icon:"🔧",unit:"pc"},
+  {id:16,name:"GM 6A Modular Switch",brand:"GM",cat:"electrical",price:55,stock:100,icon:"💡",unit:"pc"},
+];
+
+let cart={};
+let currentCat='all';
+let invoiceCounter=26;
+let adminOrders=[];
+let pendingUsers=[];
+let allUsers=[{name:"Demo User",email:"user@test.com",phone:"9876543210",status:"approved",joined:"2026-06-10"}];
+let salesTotal=0;
+
+function showPage(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.add('hide'));
+  document.getElementById('page-'+page).classList.remove('hide');
+  document.querySelectorAll('#nav-links button[id^=nav-]').forEach(b=>b.classList.remove('active'));
+  const nb=document.getElementById('nav-'+page);
+  if(nb)nb.classList.add('active');
+  if(page==='products')renderProducts();
+  if(page==='admin'){
+    const panel=document.getElementById('admin-panel');
+    if(!panel.classList.contains('hide'))adminTab('dashboard',null);
+  }
+}
+
+function showNotif(msg){
+  const n=document.getElementById('notif');
+  document.getElementById('notif-text').textContent=msg;
+  n.classList.add('show');
+  setTimeout(()=>n.classList.remove('show'),2800);
+}
+
+// PRODUCTS
+function renderProducts(){
+  const grid=document.getElementById('products-grid');
+  const search=(document.getElementById('search-input').value||'').toLowerCase();
+  let list=PRODUCTS.filter(p=>{
+    const catOk=currentCat==='all'||p.cat===currentCat;
+    const searchOk=!search||p.name.toLowerCase().includes(search)||p.brand.toLowerCase().includes(search);
+    return catOk&&searchOk;
+  });
+  if(list.length===0){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text2)"><i class="ti ti-search" style="font-size:40px;opacity:.3;display:block;margin-bottom:10px"></i>No products found. Try a different search or category.</div>';
+    return;
+  }
+  grid.innerHTML=list.map(p=>`
+    <div class="prod-card">
+      <div class="prod-img">${p.icon}<span class="prod-cat-tag">${p.cat}</span></div>
+      <div class="prod-info">
+        <div class="name">${p.name}</div>
+        <div class="brand">${p.brand}</div>
+        <div class="price">₹${p.price.toLocaleString('en-IN')} <span>/ ${p.unit}</span></div>
+        <span class="badge ${p.stock>20?'badge-green':p.stock>5?'badge-amber':'badge-red'}">${p.stock>0?'In Stock ('+p.stock+')':'Out of Stock'}</span>
+        <button class="add-btn" onclick="addToCart(${p.id})" ${p.stock===0?'disabled':''}>+ Add to Cart</button>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('stat-products').textContent=PRODUCTS.length;
+}
+
+function filterCat(btn,cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCat=cat;
+  renderProducts();
+}
+function filterProducts(){renderProducts();}
+
+// CART
+function addToCart(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p)return;
+  if(cart[id])cart[id].qty++;
+  else cart[id]={...p,qty:1};
+  updateCart();
+  showNotif(p.name+' added to cart');
+}
+
+function updateCart(){
+  const items=Object.values(cart);
+  const count=items.reduce((a,b)=>a+b.qty,0);
+  document.getElementById('cart-count').textContent=count;
+  const sub=items.reduce((a,b)=>a+b.price*b.qty,0);
+  const sgst=Math.round(sub*0.09);
+  const cgst=Math.round(sub*0.09);
+  const grand=sub+sgst+cgst;
+  document.getElementById('cart-sub').textContent='₹'+sub.toLocaleString('en-IN');
+  document.getElementById('cart-sgst').textContent='₹'+sgst.toLocaleString('en-IN');
+  document.getElementById('cart-cgst').textContent='₹'+cgst.toLocaleString('en-IN');
+  document.getElementById('cart-grand').textContent='₹'+grand.toLocaleString('en-IN');
+  document.getElementById('checkout-btn').disabled=items.length===0;
+  const list=document.getElementById('cart-items-list');
+  list.innerHTML=items.length===0
+    ?'<div style="text-align:center;color:var(--text2);padding:2.5rem 1rem;font-size:13px"><i class="ti ti-shopping-cart" style="font-size:36px;opacity:.25;display:block;margin-bottom:8px"></i>Your cart is empty</div>'
+    :items.map(item=>`
+      <div class="cart-item">
+        <div class="ci-icon">${item.icon}</div>
+        <div style="flex:1">
+          <div class="ci-name">${item.name}</div>
+          <div class="ci-sub">₹${item.price} × ${item.qty} = ₹${(item.price*item.qty).toLocaleString('en-IN')}</div>
+        </div>
+        <div class="ci-qty">
+          <button onclick="changeQty(${item.id},-1)">−</button>
+          <span style="font-size:13px;min-width:22px;text-align:center;font-weight:600">${item.qty}</span>
+          <button onclick="changeQty(${item.id},1)">+</button>
+        </div>
+      </div>
+    `).join('');
+}
+
+function changeQty(id,d){
+  if(!cart[id])return;
+  cart[id].qty+=d;
+  if(cart[id].qty<=0)delete cart[id];
+  updateCart();
+}
+function clearCart(){cart={};updateCart();}
+function toggleCart(){document.getElementById('cart-sidebar').classList.toggle('open');}
+
+// INVOICE
+function openInvoiceModal(){
+  if(Object.keys(cart).length===0)return;
+  document.getElementById('invoice-modal').classList.remove('hide');
+  document.getElementById('inv-date').value=new Date().toISOString().split('T')[0];
+}
+function closeInvoiceModal(){document.getElementById('invoice-modal').classList.add('hide');}
+
+function createInvoice(){
+  const name=document.getElementById('inv-name').value.trim();
+  if(!name){alert('Customer name is required');return;}
+  const phone=document.getElementById('inv-phone').value.trim();
+  const addr=document.getElementById('inv-addr').value.trim();
+  const pay=document.getElementById('inv-payment').value;
+  const date=document.getElementById('inv-date').value;
+  invoiceCounter++;
+  const items=Object.values(cart);
+  const sub=items.reduce((a,b)=>a+b.price*b.qty,0);
+  const sgst=Math.round(sub*0.09);
+  const cgst=Math.round(sub*0.09);
+  const grand=sub+sgst+cgst;
+  salesTotal+=grand;
+  document.getElementById('stat-sales').textContent='₹'+salesTotal.toLocaleString('en-IN');
+  document.getElementById('stat-orders').textContent=parseInt(document.getElementById('stat-orders').textContent||0)+1;
+  document.getElementById('inv-bill-no').textContent=invoiceCounter;
+  document.getElementById('inv-bill-date').textContent=date;
+  document.getElementById('inv-bill-name').textContent=name;
+  document.getElementById('inv-bill-phone').textContent=phone||'—';
+  document.getElementById('inv-bill-addr').textContent=addr||'—';
+  document.getElementById('inv-bill-pay').textContent=pay;
+  document.getElementById('inv-table-body').innerHTML=items.map((it,i)=>`
+    <tr><td>${i+1}</td><td>${it.name}<br><span style="font-size:11px;color:var(--text2)">${it.brand}</span></td>
+    <td>${it.qty} ${it.unit}</td><td>₹${it.price.toLocaleString('en-IN')}</td>
+    <td>₹${(it.price*it.qty).toLocaleString('en-IN')}</td></tr>
+  `).join('');
+  document.getElementById('inv-total-sub').textContent='₹'+sub.toLocaleString('en-IN');
+  document.getElementById('inv-total-sgst').textContent='₹'+sgst.toLocaleString('en-IN');
+  document.getElementById('inv-total-cgst').textContent='₹'+cgst.toLocaleString('en-IN');
+  document.getElementById('inv-total-grand').textContent='₹'+grand.toLocaleString('en-IN');
+  adminOrders.push({billNo:invoiceCounter,name,phone,date,pay,items:items.map(i=>({...i})),sub,sgst,cgst,grand});
+  closeInvoiceModal();
+  document.getElementById('cart-sidebar').classList.remove('open');
+  clearCart();
+  document.getElementById('invoice-print-modal').classList.remove('hide');
+  showNotif('Invoice #'+invoiceCounter+' created!');
+}
+function closeInvPrint(){document.getElementById('invoice-print-modal').classList.add('hide');}
+
+// AUTH
+function showRegister(){document.getElementById('auth-login-view').classList.add('hide');document.getElementById('auth-register-view').classList.remove('hide');}
+function showLogin(){document.getElementById('auth-register-view').classList.add('hide');document.getElementById('auth-login-view').classList.remove('hide');}
+function googleLogin(){showNotif('Google Sign-In: Connect Firebase Auth in your live deployment');}
+function doLogin(){
+  const e=document.getElementById('login-email').value;
+  const p=document.getElementById('login-pass').value;
+  const err=document.getElementById('login-err');
+  if(!e||!p){err.classList.remove('hide');err.textContent='Please fill in all fields.';return;}
+  err.classList.add('hide');
+  showNotif('Logged in as '+e);
+  document.getElementById('nav-auth').innerHTML='<i class="ti ti-user-check"></i> '+e.split('@')[0];
+  showPage('home');
+}
+function doRegister(){
+  const f=document.getElementById('reg-first').value.trim();
+  const l=document.getElementById('reg-last').value.trim();
+  const e=document.getElementById('reg-email').value.trim();
+  const ph=document.getElementById('reg-phone').value.trim();
+  const p=document.getElementById('reg-pass').value;
+  const err=document.getElementById('reg-err');
+  if(!f||!e||!p){err.classList.remove('hide');err.textContent='Name, email and password are required.';return;}
+  err.classList.add('hide');
+  const newUser={name:f+' '+l,email:e,phone:ph,status:'pending',joined:new Date().toISOString().split('T')[0]};
+  pendingUsers.push(newUser);
+  allUsers.push(newUser);
+  showNotif('Registration submitted! Admin will approve your account shortly.');
+  showLogin();
+}
+
+// ADMIN AUTH
+function doAdminLogin(){
+  const e=document.getElementById('admin-email').value;
+  const p=document.getElementById('admin-pass').value;
+  const err=document.getElementById('admin-err');
+  if(e==='admin@nre.com'&&p==='admin123'){
+    err.classList.add('hide');
+    document.getElementById('admin-login-screen').classList.add('hide');
+    document.getElementById('admin-panel').classList.remove('hide');
+    adminTab('dashboard',null);
+  } else {err.classList.remove('hide');}
+}
+function adminLogout(){
+  document.getElementById('admin-login-screen').classList.remove('hide');
+  document.getElementById('admin-panel').classList.add('hide');
+  document.getElementById('admin-email').value='';
+  document.getElementById('admin-pass').value='';
+}
+
+// ADMIN TABS
+function adminTab(tab,btn){
+  if(btn){document.querySelectorAll('.admin-sidebar button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+  const c=document.getElementById('admin-content');
+  if(tab==='dashboard') c.innerHTML=adminDashboard();
+  else if(tab==='products') c.innerHTML=adminProducts();
+  else if(tab==='inventory') c.innerHTML=adminInventory();
+  else if(tab==='orders') c.innerHTML=adminOrders_();
+  else if(tab==='invoices') c.innerHTML=adminInvoices();
+  else if(tab==='users') c.innerHTML=adminUsers();
+  else if(tab==='settings') c.innerHTML=adminSettings();
+}
+
+function adminDashboard(){
+  const orders=adminOrders.length;
+  const revenue=adminOrders.reduce((a,b)=>a+b.grand,0);
+  const pending=pendingUsers.filter(u=>u.status==='pending').length;
+  return `
+    <div class="section-header"><h2>Dashboard Overview</h2><span class="badge badge-green">Live</span></div>
+    <div class="stats-grid" style="margin-bottom:1.5rem">
+      <div class="stat-card"><div class="num">${PRODUCTS.length}</div><div class="lbl">Products</div></div>
+      <div class="stat-card"><div class="num">${orders}</div><div class="lbl">Orders Today</div></div>
+      <div class="stat-card"><div class="num">₹${revenue.toLocaleString('en-IN')}</div><div class="lbl">Today's Revenue</div></div>
+      <div class="stat-card"><div class="num" style="color:${pending>0?'var(--red)':'var(--green)'}">${pending}</div><div class="lbl">Pending Registrations</div></div>
+    </div>
+    ${pending>0?`<div class="card" style="background:#FFF3DC;border-color:var(--amber);box-shadow:none;margin-bottom:1rem"><p style="color:var(--amber-dark);font-weight:600;display:flex;align-items:center;gap:8px"><i class="ti ti-bell"></i> ${pending} new user registration${pending>1?'s':''} awaiting approval</p><button class="btn btn-sm" style="margin-top:8px" onclick="adminTabDirect('users')">Review Registrations →</button></div>`:''}
+    <div class="card">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">Recent Orders</h3>
+      ${adminOrders.length===0
+        ?'<p style="color:var(--text2);font-size:13px">No orders recorded yet today. <a href="#" onclick="showPage(\'products\')" style="color:var(--green)">Start selling →</a></p>'
+        :`<table class="data-table"><thead><tr><th>Bill #</th><th>Customer</th><th>Amount</th><th>Payment</th></tr></thead><tbody>
+        ${adminOrders.slice(-5).reverse().map(o=>`<tr><td><strong>#${o.billNo}</strong></td><td>${o.name}</td><td><strong>₹${o.grand.toLocaleString('en-IN')}</strong></td><td><span class="badge badge-green">${o.pay}</span></td></tr>`).join('')}
+        </tbody></table>`}
+    </div>`;
+}
+
+function adminTabDirect(tab){
+  document.querySelectorAll('.admin-sidebar button').forEach(b=>{
+    if(b.textContent.trim().toLowerCase().includes(tab))b.click();
+  });
+}
+
+function adminProducts(){
+  return `<div class="section-header"><h2>Manage Products</h2><button class="btn btn-primary btn-sm" onclick="showAddProduct()"><i class="ti ti-plus"></i> Add Product</button></div>
+  <div id="add-product-form" class="card hide" style="margin-bottom:1.25rem">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">Add New Product</h3>
+    <div class="form-grid">
+      <div><label>Product Name *</label><input type="text" id="np-name" placeholder="e.g. Philips 9W LED Bulb"></div>
+      <div><label>Brand *</label><input type="text" id="np-brand" placeholder="e.g. Philips"></div>
+      <div><label>Category</label>
+        <select id="np-cat"><option value="electrical">Electrical</option><option value="lighting">Lighting</option><option value="cables">Cables & Wires</option><option value="hardware">Hardware</option><option value="paint">Paints</option><option value="pvc">PVC/Fittings</option></select>
+      </div>
+      <div><label>Price (₹) *</label><input type="number" id="np-price" placeholder="0"></div>
+      <div><label>Stock Qty</label><input type="number" id="np-stock" placeholder="0"></div>
+      <div><label>Unit</label><input type="text" id="np-unit" placeholder="pc / roll / tin / bag"></div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:14px">
+      <button class="btn btn-primary btn-sm" onclick="saveProduct()"><i class="ti ti-check"></i> Save Product</button>
+      <button class="btn btn-sm" onclick="hideAddProduct()"><i class="ti ti-x"></i> Cancel</button>
+    </div>
+  </div>
+  <table class="data-table"><thead><tr><th>Name</th><th>Brand</th><th>Category</th><th>Price</th><th>Stock</th><th>Action</th></tr></thead>
+  <tbody>${PRODUCTS.map(p=>`<tr>
+    <td><strong>${p.icon} ${p.name}</strong></td><td>${p.brand}</td>
+    <td><span class="badge badge-blue">${p.cat}</span></td>
+    <td><strong>₹${p.price.toLocaleString('en-IN')}</strong></td>
+    <td><span class="badge ${p.stock>20?'badge-green':p.stock>5?'badge-amber':'badge-red'}">${p.stock}</span></td>
+    <td><button class="btn btn-sm" onclick="deleteProduct(${p.id})" style="border-color:#F7C1C1;color:var(--red-dark)"><i class="ti ti-trash"></i></button></td>
+  </tr>`).join('')}</tbody></table>`;
+}
+
+function showAddProduct(){document.getElementById('add-product-form').classList.remove('hide');}
+function hideAddProduct(){document.getElementById('add-product-form').classList.add('hide');}
+function saveProduct(){
+  const name=document.getElementById('np-name').value.trim();
+  const brand=document.getElementById('np-brand').value.trim();
+  const cat=document.getElementById('np-cat').value;
+  const price=parseFloat(document.getElementById('np-price').value)||0;
+  const stock=parseInt(document.getElementById('np-stock').value)||0;
+  const unit=document.getElementById('np-unit').value.trim()||'pc';
+  if(!name||!brand||!price){showNotif('Please fill all required fields');return;}
+  const newId=Math.max(...PRODUCTS.map(p=>p.id))+1;
+  PRODUCTS.push({id:newId,name,brand,cat,price,stock,icon:'📦',unit});
+  showNotif(name+' added successfully!');
+  adminTab('products',null);
+}
+function deleteProduct(id){
+  const idx=PRODUCTS.findIndex(p=>p.id===id);
+  if(idx>-1){PRODUCTS.splice(idx,1);showNotif('Product removed');}
+  adminTab('products',null);
+}
+
+function adminInventory(){
+  return `<div class="section-header"><h2>Inventory & Stock</h2></div>
+  <table class="data-table"><thead><tr><th>Product</th><th>Category</th><th>Stock</th><th>Status</th><th>Update</th></tr></thead>
+  <tbody>${PRODUCTS.map(p=>`<tr>
+    <td><strong>${p.icon} ${p.name}</strong></td>
+    <td>${p.cat}</td>
+    <td><input type="number" value="${p.stock}" style="width:80px;padding:5px 8px" onchange="updateStock(${p.id},this.value)"></td>
+    <td><span class="badge ${p.stock>20?'badge-green':p.stock>5?'badge-amber':'badge-red'}">${p.stock>20?'Good':p.stock>5?'Low':'Critical'}</span></td>
+    <td><button class="btn btn-sm btn-primary" onclick="updateStock(${p.id},document.querySelector('[onchange*=\\'${p.id}\\']').value)"><i class="ti ti-refresh"></i></button></td>
+  </tr>`).join('')}</tbody></table>`;
+}
+
+function updateStock(id,val){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(p){p.stock=parseInt(val)||0;showNotif('Stock updated for '+p.name);}
+}
+
+function adminOrders_(){
+  return `<div class="section-header"><h2>Orders</h2></div>
+  ${adminOrders.length===0
+    ?'<p style="color:var(--text2);font-size:13px">No orders recorded yet.</p>'
+    :`<table class="data-table"><thead><tr><th>Bill #</th><th>Customer</th><th>Phone</th><th>Items</th><th>Total</th><th>Payment</th><th>Date</th></tr></thead>
+    <tbody>${adminOrders.map(o=>`<tr>
+      <td><strong>#${o.billNo}</strong></td><td>${o.name}</td><td>${o.phone||'—'}</td>
+      <td>${o.items.length}</td><td><strong>₹${o.grand.toLocaleString('en-IN')}</strong></td>
+      <td><span class="badge badge-green">${o.pay}</span></td><td>${o.date}</td>
+    </tr>`).join('')}</tbody></table>`}`;
+}
+
+function adminInvoices(){
+  return `<div class="section-header"><h2>Invoice History</h2></div>
+  ${adminOrders.length===0
+    ?'<p style="color:var(--text2);font-size:13px">No invoices generated yet. <a href="#" onclick="showPage(\'products\')" style="color:var(--green)">Start selling →</a></p>'
+    :`<table class="data-table"><thead><tr><th>Invoice #</th><th>Customer</th><th>Date</th><th>Subtotal</th><th>SGST</th><th>CGST</th><th>Grand Total</th></tr></thead>
+    <tbody>${adminOrders.map(o=>`<tr>
+      <td><strong>#${o.billNo}</strong></td><td>${o.name}</td><td>${o.date}</td>
+      <td>₹${o.sub.toLocaleString('en-IN')}</td>
+      <td>₹${o.sgst.toLocaleString('en-IN')}</td>
+      <td>₹${o.cgst.toLocaleString('en-IN')}</td>
+      <td><strong>₹${o.grand.toLocaleString('en-IN')}</strong></td>
+    </tr>`).join('')}</tbody></table>`}`;
+}
+
+function adminUsers(){
+  return `<div class="section-header"><h2>User Registrations</h2></div>
+  ${pendingUsers.filter(u=>u.status==='pending').length>0
+    ?`<div class="card" style="background:#FFF3DC;border-color:var(--amber);box-shadow:none;margin-bottom:1rem">
+    <p style="color:var(--amber-dark);font-weight:600;margin-bottom:10px"><i class="ti ti-bell"></i> Pending Approvals (${pendingUsers.filter(u=>u.status==='pending').length})</p>
+    ${pendingUsers.filter(u=>u.status==='pending').map(u=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.07)">
+      <div><strong>${u.name}</strong> <span style="font-size:12px;color:var(--amber-dark);margin-left:8px">${u.email}</span></div>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-sm btn-primary" onclick="approveUser('${u.email}')"><i class="ti ti-check"></i> Approve</button>
+        <button class="btn btn-sm btn-danger" onclick="rejectUser('${u.email}')"><i class="ti ti-x"></i> Reject</button>
+      </div>
+    </div>`).join('')}
+    </div>`:''}
+  <table class="data-table"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Status</th><th>Joined</th></tr></thead>
+  <tbody>${allUsers.map(u=>`<tr>
+    <td><strong>${u.name}</strong></td><td>${u.email}</td><td>${u.phone||'—'}</td>
+    <td><span class="badge ${u.status==='approved'?'badge-green':u.status==='pending'?'badge-amber':'badge-red'}">${u.status}</span></td>
+    <td>${u.joined}</td>
+  </tr>`).join('')}</tbody></table>`;
+}
+
+function approveUser(email){
+  const u=allUsers.find(x=>x.email===email);if(u)u.status='approved';
+  const pu=pendingUsers.find(x=>x.email===email);if(pu)pu.status='approved';
+  showNotif('User approved: '+email);adminTab('users',null);
+}
+function rejectUser(email){
+  const u=allUsers.find(x=>x.email===email);if(u)u.status='rejected';
+  const pu=pendingUsers.find(x=>x.email===email);if(pu)pu.status='rejected';
+  showNotif('User rejected: '+email);adminTab('users',null);
+}
+
+function adminSettings(){
+  return `<div class="section-header"><h2>Settings</h2></div>
+  <div class="card" style="margin-bottom:1.25rem">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:14px"><i class="ti ti-building-store" style="color:var(--green);vertical-align:-2px"></i> Store Information</h3>
+    <label>Store Name</label><input type="text" value="New Royal Electricals & Hardware">
+    <label>Address</label><input type="text" value="92, Main Road, Pennadam – 606 105">
+    <label>GSTIN</label><input type="text" value="33AACFN4722E1ZR">
+    <label>Phone 1</label><input type="text" value="94431 82381">
+    <label>Phone 2</label><input type="text" value="99448 64347">
+    <button class="btn btn-primary btn-sm" style="margin-top:14px" onclick="showNotif('Settings saved successfully!')"><i class="ti ti-check"></i> Save Settings</button>
+  </div>
+  <div class="card">
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:14px"><i class="ti ti-receipt-tax" style="color:var(--green);vertical-align:-2px"></i> GST Configuration</h3>
+    <label>SGST %</label><input type="number" value="9" style="max-width:120px">
+    <label>CGST %</label><input type="number" value="9" style="max-width:120px">
+    <button class="btn btn-primary btn-sm" style="margin-top:14px" onclick="showNotif('GST settings saved!')"><i class="ti ti-check"></i> Save</button>
+  </div>`;
+}
+
+function sendContact(){
+  const n=document.getElementById('contact-name').value.trim();
+  if(!n){alert('Please enter your name.');return;}
+  showNotif('Message sent! We will reply within 24 hours.');
+  document.getElementById('contact-name').value='';
+  document.getElementById('contact-phone').value='';
+  document.getElementById('contact-msg').value='';
+}
+
+// INIT
+renderProducts();
+updateCart();
+</script>
+</body>
+</html>
